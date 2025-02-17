@@ -41,6 +41,11 @@ jobs:
       - name: install dependencies
         run: npm install
         working-directory: ./client
+
+      - name: install dependencies
+        run: npm run test
+        working-directory: ./client
+
       - name: build
         run: npm run build
         working-directory: ./client
