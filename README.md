@@ -30,6 +30,6 @@ npm run dev
 ### Run the frontend
 
 ```bash
-cd frontend
+cd client
 npm run dev
 ```
