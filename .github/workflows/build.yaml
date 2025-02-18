@@ -38,11 +38,11 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: install dependencies
+      - name: Install dependencies
         run: npm install
         working-directory: ./client
 
-      - name: install dependencies
+      - name: Test
         run: npm run test
         working-directory: ./client
 
