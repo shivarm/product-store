@@ -1,4 +1,5 @@
 import { sql } from "../db/db.js";
+
 export const getProducts = async (req, res) => {
   try {
     const product = await sql`
