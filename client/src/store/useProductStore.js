@@ -15,8 +15,8 @@ export const useProductStore = create((set) => ({
       const response = await axios.get(`${BASE_URL}/api/products`);
       set({ products: response.data.data });
     } catch (err) {
-      if (err.status === 429) set({ error: "Rate limit exceed" });
-      else set({ error: "Something went wrong" });
+      if (err.status === 429) set({ error: "Rate limit exceed", products: [] }); // product should be null after rate limit exceed
+      else set({ error: "Something went wrong", products: [] });
     } finally {
       set({ loading: false });
     }
