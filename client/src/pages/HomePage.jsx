@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useProductStore } from "../store/useProductStore";
 import { ProductCard } from "../components/ProductCard";
+import { AddProduct } from "../components/AddProduct";
 import { PlusCircleIcon, RefreshCwIcon, PackageIcon } from "lucide-react";
 
 const HomePage = () => {
@@ -13,7 +14,12 @@ const HomePage = () => {
   return (
     <main className="max-w-6xl mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-8">
-        <button className="btn btn-primary rounded-lg">
+        <button
+          className="btn btn-primary rounded-lg"
+          onClick={() =>
+            document.getElementById("add_product_modal").showModal()
+          }
+        >
           <PlusCircleIcon className="size-5 mr-2" />
           Add Product
         </button>
@@ -22,14 +28,16 @@ const HomePage = () => {
         </button>
       </div>
 
+      <AddProduct />
+
       {error && <div className="alert alert-error mb-8">{error}</div>}
 
       {products.length === 0 && !loading && (
         <div className="flex flex-col justify-center items-center h-96 space-y-4">
           <div className="bg-base-100 rounded-full p-6">
-           <PackageIcon  className="size-12"/>
+            <PackageIcon className="size-12" />
           </div>
-          <div className="text-center space-y-4"> 
+          <div className="text-center space-y-4">
             <h3 className="text-2xl font-semibold">No products found</h3>
             <p className="text-gray-400">
               Get started by adding your first product
